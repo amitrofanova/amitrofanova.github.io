@@ -1,0 +1,5 @@
+*.log
+appserv/
+cgi-bin/
+fonts/
+phpMyAdmin/
