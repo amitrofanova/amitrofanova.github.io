@@ -144,9 +144,6 @@ header {
   bottom: 0;
   text-align: center;
 }
-.header_contacts .fa {
-  color: #fff;
-}
 .header_name {
   font-size: .2em;
   position: relative;
@@ -594,6 +591,10 @@ td:first-child {
   color: #000;
   opacity: .7;
 }
+.fa {
+  color: #0b283a;
+  padding: 0 15px;
+}
 footer {
   width: 100% !important;
   height: 80px;
@@ -605,17 +606,24 @@ footer {
 footer .footer_left {
   text-align: left;
 }
+@media (max-width: 767px) {
+  footer .footer_left {
+    padding-top: 10px;
+  }
+}
 footer .footer_right {
   text-align: right;
 }
-footer .footer_left,
-footer .footer_right {
-  padding: 30px;
+@media (min-width: 768px) {
+  footer .footer_left,
+  footer .footer_right {
+    line-height: 80px;
+  }
 }
 @media (max-width: 767px) {
   footer .footer_left,
   footer .footer_right {
-    padding: 20px 20px 0;
     text-align: center;
+    line-height: 40px;
   }
 }

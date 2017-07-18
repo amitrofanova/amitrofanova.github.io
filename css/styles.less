@@ -158,10 +158,6 @@ header {
 	position: absolute;
 	bottom: 0;
 	text-align: center;
-	.fa {
-		// font-size: 60px;
-		color: #fff;
-	}
 }
 
 .header_name {
@@ -577,6 +573,11 @@ td:first-child {
 	}
 }
 
+.fa {
+	color: #0b283a;
+	padding: 0 15px;
+}
+
 footer {
 	width: 100% !important;
 	height: 80px;
@@ -586,16 +587,15 @@ footer {
   font-size: .8em;
 	.footer_left {
 		text-align: left;
+		@media (max-width: 767px) {padding-top: 10px;}
 	}
 	.footer_right {
 		text-align: right;
+			// padding: 25px;
 	}
 	.footer_left,
 	.footer_right {
-		padding: 30px;
-		@media (max-width: 767px) {
-			padding: 20px 20px 0;
-			text-align: center;
-		}
+		@media (min-width: 768px) {line-height: 80px;}
+		@media (max-width: 767px) {text-align: center; line-height: 40px;}
 	}
 }
