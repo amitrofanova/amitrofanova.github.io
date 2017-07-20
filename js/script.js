@@ -44,9 +44,9 @@ function animateSkills(){
 	var top_offset = $("#skills_section").offset().top;
 	var bottom_offset = top_offset-$(window).height()+150;
 	if ($(document).scrollTop()>bottom_offset){
-		$.getJSON( "skills.json", function( data ) {
-			$.each(data, function( key, val ) {
-				$(document.getElementById(key)).animate({width: val, opacity: '1'}, 2000);
+		$.getJSON( "skills.json", function(data) {
+			$.each(data, function(key, val) {
+				$(document.getElementById(key)).animate({width: val+"%", opacity: '1'}, 2000);
 			});
 		});
 	}
