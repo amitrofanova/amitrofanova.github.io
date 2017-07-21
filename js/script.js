@@ -4,7 +4,7 @@ jQuery(document).ready(function(){
 	animateSkills();
 	$(window).on("resize", changeNav);
 	$(window).on("scroll", changeNav);
-	$(window).on("scroll", changeNavHeight);
+	// $(window).on("scroll", changeNavHeight);
 	$(window).on("scroll", animateSkills);
 
 	new WOW().init();
@@ -25,8 +25,22 @@ function changeNav(){
 		}
 	}
 	else{
-		$(".navbar").addClass("navbar-default");
-		$(".navbar").removeClass("navbar-fixed-top");
+		if($(this).scrollTop()>0){
+			$(".navbar").addClass("navbar-scrolled");
+			$(".navbar").addClass("navbar-fixed-top");
+			// $(".navbar").removeClass("navbar-default");
+			$(".navbar-brand").removeClass("visible-xs");
+			$(".navbar-brand").addClass("hidden-xs");
+			document.getElementsByClassName("about")[0].style.paddingTop="80px";
+		}
+		else {
+			$(".navbar").addClass("navbar-default");
+			$(".navbar").removeClass("navbar-scrolled");
+			$(".navbar-brand").addClass("visible-xs");
+			$(".navbar-brand").removeClass("hidden-xs");
+			// $(".navbar").removeClass("navbar-fixed-top");
+		}
+		// TODO: add navbarScrolled
 	}
 }
 
