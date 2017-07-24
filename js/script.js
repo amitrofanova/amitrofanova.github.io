@@ -13,34 +13,33 @@ jQuery(document).ready(function(){
 
 function changeNav(){
 	if (document.documentElement.clientWidth > 767){
-		$(".navbar").addClass("navbar-fixed-top");
 		$(".navbar").removeClass("navbar-default");
+		$(".navbar").removeClass("navbar-scrolled");
+		$(".navbar").addClass("navbar-fixed-top");
+	  $(".navbar-brand").addClass("visible-xs");
 		if($(this).scrollTop()>0){
-			$(".navbar").addClass("navbar-white");
 			$(".navbar").removeClass("navbar-transparent");
+			$(".navbar").addClass("navbar-white");
 		}
 		else{
+		  $(".navbar").removeClass("navbar-white");
 			$(".navbar").addClass("navbar-transparent");
-			$(".navbar").removeClass("navbar-white");
 		}
 	}
 	else{
 		if($(this).scrollTop()>0){
+		  $(".navbar-brand").removeClass("visible-xs");
 			$(".navbar").addClass("navbar-scrolled");
 			$(".navbar").addClass("navbar-fixed-top");
-			// $(".navbar").removeClass("navbar-default");
-			$(".navbar-brand").removeClass("visible-xs");
 			$(".navbar-brand").addClass("hidden-xs");
 			document.getElementsByClassName("about")[0].style.paddingTop="80px";
 		}
 		else {
-			$(".navbar").addClass("navbar-default");
 			$(".navbar").removeClass("navbar-scrolled");
-			$(".navbar-brand").addClass("visible-xs");
 			$(".navbar-brand").removeClass("hidden-xs");
-			// $(".navbar").removeClass("navbar-fixed-top");
+			$(".navbar-brand").addClass("visible-xs");
+			$(".navbar").addClass("navbar-default");
 		}
-		// TODO: add navbarScrolled
 	}
 }
 
@@ -67,11 +66,11 @@ function animateSkills(){
 }
 
 function openModal() {
-	document.getElementById('myModal').style.display = "block";
+	document.getElementById('gallery').style.display = "block";
 }
 
 function closeModal() {
-	document.getElementById('myModal').style.display = "none";
+	document.getElementById('gallery').style.display = "none";
 }
 
 var slideIndex = 1;
@@ -86,7 +85,7 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-	var slides = document.getElementsByClassName("mySlides");
+	var slides = document.getElementsByClassName("slides");
 	var captionText = document.getElementById("caption");
 	if (n > slides.length) {slideIndex = 1}
 	if (n < 1) {slideIndex = slides.length}

@@ -114,6 +114,7 @@ ul {
 .navbar-default .navbar-brand .navbar-brand_title {
   font-family: 'Russo One', sans-serif;
   font-size: 1.3em;
+  text-transform: uppercase;
 }
 .navbar-default .navbar-brand:hover {
   color: #fff;
@@ -129,14 +130,16 @@ ul {
   background-color: #fff;
 }
 .navbar-default .navbar-toggle:hover .icon-bar {
-  background-color: #000;
+  background-color: #0b283a;
 }
 .navbar-default .navbar-collapse {
   border: none;
 }
 .navbar-scrolled {
-  background: linear-gradient(to bottom, rgba(11, 40, 58, 0.9), rgba(255, 255, 255, 0));
-  color: #000;
+  background: -webkit-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
+  background: -o-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
+  background: -moz-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
+  background: linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
 }
 .navbar-scrolled .navbar-toggle {
   border: 2px solid #0b283a;
@@ -506,7 +509,7 @@ header {
   text-decoration: none;
   cursor: pointer;
 }
-.portfolio .mySlides {
+.portfolio .slides {
   display: none;
   width: auto;
 }
