@@ -76,6 +76,9 @@ ul {
 .navbar-white a {
   color: #000;
 }
+.navbar-white .lang {
+  -webkit-text-fill-color: #000;
+}
 .navbar-white .nav > li > a:hover {
   background-color: #0b283a;
   color: #fff;
@@ -154,14 +157,20 @@ ul {
 .navbar-scrolled .navbar-toggle:hover .icon-bar {
   background-color: #fff;
 }
+.lang {
+  z-index: 100000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 30px;
+  line-height: 70px;
+  font-weight: 400;
+  -webkit-text-fill-color: #fff;
+  font-size: 1em;
+}
 header {
   width: 100% !important;
   position: relative;
-}
-.header_contacts {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
 }
 .header_name {
   font-size: .2em;
