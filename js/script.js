@@ -20,10 +20,17 @@ function changeNav(){
 		if($(this).scrollTop()>0){
 			$(".navbar").removeClass("navbar-transparent");
 			$(".navbar").addClass("navbar-white");
+			// document.getElementsByClassName("to-top")[0].style.display="block";
 		}
 		else{
 		  $(".navbar").removeClass("navbar-white");
 			$(".navbar").addClass("navbar-transparent");
+		}
+		if($(this).scrollTop()>$("#top").height()){
+			document.getElementsByClassName("to-top")[0].style.display="block";
+		}
+		else{
+			document.getElementsByClassName("to-top")[0].style.display="none";
 		}
 	}
 	else{

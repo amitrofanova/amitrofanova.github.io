@@ -183,16 +183,25 @@ ul {
 	}
 }
 
-.lang {
+.lang, .to-top {
 	z-index: 100000;
 	position: absolute;
 	top: 0;
-	left: 0;
 	padding: 0 30px;
 	line-height: 70px;
 	font-weight: 400;
+	color: #fff;
 	-webkit-text-fill-color: #fff;
 	font-size: 1em;
+}
+.lang {
+	left: 0;
+}
+.to-top {
+	right: 0;
+	color: #000;
+	-webkit-text-fill-color: #000;
+	display: none;
 }
 
 header {
@@ -614,6 +623,9 @@ td:first-child {
 .fa {
 	color: #0b283a;
 	padding: 0 15px;
+}
+.fa.fa-arrow-circle-up {
+	line-height: 70px;
 }
 
 footer {
