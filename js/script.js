@@ -1,4 +1,14 @@
+
+
+	// window.onload = function(){
+	// 	 $('#overlay').fadeOut(2000);
+	// }
+
 jQuery(document).ready(function(){
+	
+	$(window).on("load", function() {
+		$('#overlay').fadeOut(2000);
+	});
 
 	changeNav();
 	animateSkills();
@@ -20,7 +30,6 @@ function changeNav(){
 		if($(this).scrollTop()>0){
 			$(".navbar").removeClass("navbar-transparent");
 			$(".navbar").addClass("navbar-white");
-			// document.getElementsByClassName("to-top")[0].style.display="block";
 		}
 		else{
 		  $(".navbar").removeClass("navbar-white");
