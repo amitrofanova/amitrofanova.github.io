@@ -1,14 +1,12 @@
-
-
 	// window.onload = function(){
 	// 	 $('#overlay').fadeOut(2000);
 	// }
 
 jQuery(document).ready(function(){
-	
-	$(window).on("load", function() {
-		$('#overlay').fadeOut(2000);
-	});
+
+	// $(window).on("load", function() {
+	// 	$('#overlay').fadeOut(2000);
+	// });
 
 	changeNav();
 	animateSkills();
@@ -16,8 +14,7 @@ jQuery(document).ready(function(){
 	$(window).on("scroll", changeNav);
 	// $(window).on("scroll", changeNavHeight);
 	$(window).on("scroll", animateSkills);
-
-	new WOW().init();
+	$('#gallery').on('click', openModal, currentSlide(1));
 
 });
 
@@ -73,7 +70,7 @@ function animateSkills(){
 	var top_offset = $("#skills_section").offset().top;
 	var bottom_offset = top_offset-$(window).height()+150;
 	if ($(document).scrollTop()>bottom_offset){
-		$.getJSON( "skills.json", function(data) {
+		$.getJSON( "assets/data/skills.json", function(data) {
 			$.each(data, function(key, val) {
 				$(document.getElementById(key)).animate({width: val+"%", opacity: '1'}, 2000);
 			});
@@ -110,7 +107,6 @@ function showSlides(n) {
 	}
 	var slide = slides[slideIndex-1];
 	if (slide === undefined) {} else {
-		console.log(slide);
 		slide.style.display = "block";
 		slide.addClass("active");
 	}
