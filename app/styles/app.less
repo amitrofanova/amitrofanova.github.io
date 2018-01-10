@@ -482,14 +482,20 @@ header {
     .preview-inner {
       position: relative;
   		height: 260px;
-      background-image: url('../images/FireShot1.png');
-      background-size: cover;
   		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
       &:hover {
   			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  			cursor: pointer
+  			cursor: pointer;
   		}
     }
+
+		.preview-inner__img {
+			overflow: hidden;
+			max-height: 100%;
+			img {
+				max-width: 100%;
+			}
+		}
 
     .description {
       position: absolute;
