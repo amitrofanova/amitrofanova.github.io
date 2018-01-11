@@ -99,50 +99,6 @@ function showSlides(slides) {
 		showCurrentSlide(slideIndex);
 	}
 
-
-	showCurrentSlide(0);
-	openModal('#gallery');
-
-	$('.modal-preview').on('click', function() {
-		slideIndex = $('.modal-preview').index($(this));
-		showCurrentSlide(slideIndex);
-	});
-
-	$('.close').on('click', closeModal);
-	$('.prev').on('click', showPreviousSlide);
-	$('.next').on('click', showNextSlide);
-
-}
-
-function showSlides2(slides) {
-
-	// const slides = $('.slides');
-	var slideIndex = 0;
-
-	function showCurrentSlide(n) {
-		for (var i = 0; i < slides.length; i++) {
-			slides[i].style.display = 'none';
-		}
-		slides[n].style.display = 'block';
-	}
-
-	function showPreviousSlide() {
-		slideIndex = slideIndex - 1;
-		if (slideIndex < 0) {
-			slideIndex = slides.length - 1;
-		}
-		showCurrentSlide(slideIndex);
-	}
-
-	function showNextSlide() {
-		slideIndex = slideIndex + 1;
-		if (slideIndex === slides.length) {
-			slideIndex = 0;
-		}
-		showCurrentSlide(slideIndex);
-	}
-
-
 	showCurrentSlide(0);
 
 	$('.prev').on('click', showPreviousSlide);
@@ -150,24 +106,24 @@ function showSlides2(slides) {
 
 }
 
-jQuery(document).ready(function(){
+$(document).ready(function(){
 
 	changeNav();
 	animateSkills();
 	$(window).on("resize", changeNav);
 	$(window).on("scroll", changeNav);
 	$(window).on("scroll", animateSkills);
-	// showSlides();
 
 	$('.portfolio__hospital').on('click', function() {
-		const slides = $('.slides');
+		openModal('#gallery');
+		const slides = $('.slider__hospital').children('.slider__item');
 		showSlides(slides);
 	});
 
 	$('.portfolio__recipes').on('click', function() {
 		openModal('#recipes');
-		const slides = $('.slider__item');
-		showSlides2(slides);
+		const slides = $('.slider__recipes').children('.slider__item');
+		showSlides(slides);
 	});
 
 	$('.close').on('click', closeModal);
