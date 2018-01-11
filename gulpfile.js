@@ -71,7 +71,7 @@ gulp.task('build', ['styles', 'templates', 'scripts', 'images', 'copy'])
 
 gulp.task('default', ['browser-sync', 'styles', 'templates', 'scripts', 'images', 'copy'], function() {
 	gulp.watch(['app/styles/app.less'], ['styles']);
-	gulp.watch(['app/index.html'], ['templates']);
+	gulp.watch(['app/index.html', 'app/index_en.html'], ['templates']);
 	gulp.watch(['app/scripts/app.js'], ['scripts']);
 	gulp.watch(['app/images/*'], ['images']);
 	gulp.watch(['app/data/skills.json'], ['copy']);
