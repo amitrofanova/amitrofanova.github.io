@@ -528,9 +528,13 @@ header {
 		box-shadow: none;
 		background-color: rgba(0,0,0,0);
 		margin: auto;
-		padding: 0;
 		width: 60%;
 		max-width: 1200px;
+		padding: 0;
+		@media (max-width: 575px) {
+			margin: 1rem;
+			width: calc(100% - 2rem);
+		}
 	}
 
 	.close {
@@ -588,11 +592,16 @@ header {
 }
 
 .portfolio__section {
+	margin: 4rem 0;
 	padding: 1rem 0;
 }
 
 .portfolio__section hr {
 	margin: .2rem 0;
+}
+
+.portfolio__section-title {
+	margin-top: 0;
 }
 
 .portfolio__section-text {
@@ -619,6 +628,14 @@ header {
 	padding-top: .5rem;
 	list-style: circle;
 	list-style-position: inside;
+}
+
+.slider {
+	position: relative;
+}
+
+.slider__item {
+	display: none;
 }
 
 table {
