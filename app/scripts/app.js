@@ -115,7 +115,7 @@ $(document).ready(function(){
 	$(window).on("scroll", animateSkills);
 
 	$('.portfolio__hospital').on('click', function() {
-		openModal('#gallery');
+		openModal('#hospital');
 		const slides = $('.slider__hospital').children('.slider__item');
 		showSlides(slides);
 	});
