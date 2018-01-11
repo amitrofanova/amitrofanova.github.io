@@ -79,46 +79,126 @@
 <!-- TODO: slides for mobile -->
       <div class="col-xs-12 section_title" id="portfolio_section">Portfolio<hr></div>
       <section class="col-xs-12 section portfolio">
+
         <div class="row preview">
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="preview-inner" onclick="openModal();currentSlide(1)">
+
+					<div class="col-xs-12 col-sm-6 col-md-4">
+						<div class="preview-inner portfolio__hospital">
+							<div class="preview-inner__img">
+								<img src="assets/images/FireShot1.png" alt="Частная поликлиника">
+							</div>
+							<div class="description">
+								<div class="work">Private hospital</div>
+								<div class="role">HTML, CSS</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="preview-inner portfolio__recipes">
+							<div class="preview-inner__img">
+								<img src="assets/images/Recipe book.png" alt="Книга рецептов">
+							</div>
               <div class="description">
-                <div class="work">Private hospital</div>
-                <div class="role">Front-End Development</div>
+                <div class="work">Recipe book</div>
+                <div class="role">HTML, CSS</div>
               </div>
             </div>
           </div>
+
         </div>
 
-				<div id="gallery" class="modal">
+
+				<div id="hospital" class="modal">
           <span class="close cursor">&times;</span>
+
           <div class="modal-content">
+						<h1>Private hospital</h1>
+						Website for medical organization
+						<a class="portfolio__visit-btn" href="https://клиника-тоб.рф" target="_blank">Visit website</a>
 
-            <img src="assets/images/FireShot1.png" class="slides">
-            <img src="assets/images/FireShot2.png" class="slides">
-            <img src="assets/images/FireShot3.png" class="slides">
-            <img src="assets/images/FireShot4.png" class="slides">
-            <div class="prev">&#10094;</div>
-            <div class="next">&#10095;</div>
+						<section class="portfolio__section">
+							<h3 class="portfolio__section-title">Development</h3>
+							<div class="portfolio__section-text">
+								Code technologies I got involved with while working on this project:
+								<hr>
+							</div>
+							<ul class="portfolio__list">
+								<li>HTML5 - semantic</li>
+								<li>CSS3 - preprocessed with LESS</li>
+								<li>Responsive design</li>
+							</ul>
+						</section>
 
-						<div class="row preview">
-              <div class="col-xs-12 col-sm-3">
-                <div class="modal-preview"><img src="assets/images/FireShot1.png"></div>
-              </div>
-              <div class="col-xs-12 col-sm-3">
-                <div class="modal-preview"><img src="assets/images/FireShot2.png"></div>
-              </div>
-              <div class="col-xs-12 col-sm-3">
-                <div class="modal-preview"><img src="assets/images/FireShot3.png"></div>
-              </div>
-              <div class="col-xs-12 col-sm-3">
-                <div class="modal-preview"><img src="assets/images/FireShot4.png"></div>
-              </div>
-            </div>
+						<section class="portfolio__section">
+							<h3 class="portfolio__section-title">Resources</h3>
+							<div class="portfolio__section-text">
+								The project is online at
+								<a href="https://клиника-тоб.рф" target="_blank">https://клиника-тоб.рф</a>
+							</div>
+						</section>
+
+						<section class="portfolio__section">
+							<div class="portfolio__slider slider slider__hospital">
+		            <img src="assets/images/FireShot1.png" class="slider__item">
+		            <img src="assets/images/FireShot2.png" class="slider__item">
+		            <img src="assets/images/FireShot3.png" class="slider__item">
+		            <img src="assets/images/FireShot4.png" class="slider__item">
+		            <div class="prev">&#10094;</div>
+		            <div class="next">&#10095;</div>
+							</div>
+						</section>
 
           </div>
 
         </div>
+
+				<div id="recipes" class="modal">
+					<span class="close cursor">&times;</span>
+          <div class="modal-content">
+						<h1>Recipe book</h1>
+						Website for storing cooking recipes
+						<a class="portfolio__visit-btn" href="http://v91992vr.beget.tech" target="_blank">Visit website</a>
+
+						<section class="portfolio__section">
+							<h3 class="portfolio__section-title">Development</h3>
+							<div class="portfolio__section-text">
+								Technologies I used while working on this project:
+								<hr>
+							</div>
+							<ul class="portfolio__list">
+								<li>HTML5 - semantic</li>
+								<li>CSS3 - preprocessed with SASS</li>
+								<li>Responsive design</li>
+								<li>jQuery</li>
+								<li>AJAX</li>
+							</ul>
+						</section>
+
+						<section class="portfolio__section">
+							<h3 class="portfolio__section-title">Resources</h3>
+							<div class="portfolio__section-text">
+								Access the project's source on
+								<a href="https://gitlab.com/funnymitrofunny/recipe-book" target="_blank">GITLAB</a>
+							</div>
+							<div class="portfolio__section-text">
+								The project is online at
+								<a href="http://v91992vr.beget.tech" target="_blank">http://v91992vr.beget.tech</a>
+							</div>
+						</section>
+
+						<section class="portfolio__section">
+							<div class="portfolio__slider slider slider__recipes">
+								<img src="assets/images/home page.png" alt="" class="slider__item">
+								<img src="assets/images/dashboard.png" alt="" class="slider__item">
+								<img src="assets/images/dish group.png" alt="" class="slider__item">
+		            <div class="prev">&#10094;</div>
+		            <div class="next">&#10095;</div>
+							</div>
+						</section>
+
+					</div>
+				</div>
 
       </section>
 
