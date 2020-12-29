@@ -81,7 +81,7 @@
 			<div class="row preview">
 
 				<div class="col-xs-12 col-sm-6 col-md-4">
-					<div class="preview-inner portfolio__hospital">
+					<div class="preview-inner portfolio__hospital" id="portfolioHospital">
 						<div class="preview-inner__img">
 							<img src="assets/images/FireShot1.png" alt="Частная поликлиника">
 						</div>
@@ -93,20 +93,31 @@
 				</div>
 
 				<div class="col-xs-12 col-sm-6 col-md-4">
-					<div class="preview-inner portfolio__recipes">
+					<div class="preview-inner portfolio__recipes" id="portfolioRecipes">
 						<div class="preview-inner__img">
 							<img src="assets/images/home page.png" alt="Книга рецептов">
 						</div>
 						<div class="description">
 							<div class="work">Книга рецептов</div>
-							<div class="role">Фронтэнд</div>
+							<div class="role">HTML, CSS, jQuery</div>
 						</div>
 					</div>
 				</div>
 
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<div class="preview-inner portfolio__recipes" id="portfolioCookbook">
+						<div class="preview-inner__img">
+							<img src="assets/images/cookbook.png" alt="cookbook">
+						</div>
+						<div class="description">
+							<div class="work">Книга рецептов</div>
+							<div class="role">Fullstack</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
-			<div id="hospital" class="modal">
+			<div id="portfolioHospital-modal" class="modal">
 				<span class="close cursor">&times;</span>
 
 				<div class="modal-content">
@@ -136,7 +147,7 @@
 					</section>
 
 					<section class="portfolio__section">
-						<div class="portfolio__slider slider slider__hospital">
+						<div class="portfolio__slider slider" id="portfolioHospital-slider">
 							<img src="assets/images/FireShot1.png" class="slider__item">
 							<img src="assets/images/FireShot2.png" class="slider__item">
 							<img src="assets/images/FireShot3.png" class="slider__item">
@@ -150,7 +161,7 @@
 
 			</div>
 
-			<div id="recipes" class="modal">
+			<div id="portfolioRecipes-modal" class="modal">
 				<span class="close cursor">&times;</span>
 				<div class="modal-content">
 					<h1>Recipe book</h1>
@@ -185,10 +196,61 @@
 					</section>
 
 					<section class="portfolio__section">
-						<div class="portfolio__slider slider slider__recipes">
+						<div class="portfolio__slider slider" id="portfolioRecipes-slider">
 							<img src="assets/images/home page.png" alt="" class="slider__item">
 							<img src="assets/images/dashboard.png" alt="" class="slider__item">
 							<img src="assets/images/dish group.png" alt="" class="slider__item">
+							<div class="prev">&#10094;</div>
+							<div class="next">&#10095;</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div id="portfolioCookbook-modal" class="modal">
+				<span class="close cursor">&times;</span>
+				<div class="modal-content">
+					<h1>Recipe book</h1>
+					Сайт для хранения кулинарных рецептов
+					<a class="portfolio__visit-btn" href="https://c00kbook.herokuapp.com/demo" target="_blank">
+						Посетить сайт
+					</a>
+
+					<section class="portfolio__section">
+						<h3 class="portfolio__section-title">Разработка</h3>
+						<div class="portfolio__section-text">
+							Технологии, использованные мной при создании сайта
+							<hr>
+						</div>
+						<ul class="portfolio__list">
+							<li>HTML5 - semantic</li>
+							<li>CSS3 - preprocessed with SASS</li>
+							<li>Responsive design</li>
+							<li>Flask</li>
+							<li>PostgreSQL</li>
+						</ul>
+					</section>
+
+					<section class="portfolio__section">
+						<h3 class="portfolio__section-title">Ресурсы</h3>
+						<div class="portfolio__section-text">
+							Исходники проекта:
+							<a href="https://github.com/amitrofanova/recipes" target="_blank">GitHub</a>
+						</div>
+						<div class="portfolio__section-text">
+							Сайт доступен по адресу
+							<a href="https://c00kbook.herokuapp.com/demo" target="_blank">
+								https://c00kbook.herokuapp.com/demo
+							</a>
+						</div>
+					</section>
+
+					<section class="portfolio__section">
+						<div class="portfolio__slider slider" id="portfolioCookbook-slider">
+							<img src="assets/images/cookbook.png" alt="portfolio_image" class="slider__item">
+							<img src="assets/images/cookbook2.png" alt="portfolio_image" class="slider__item">
+							<img src="assets/images/cookbook3.png" alt="portfolio_image" class="slider__item">
+							<img src="assets/images/cookbook4.png" alt="portfolio_image" class="slider__item">
 							<div class="prev">&#10094;</div>
 							<div class="next">&#10095;</div>
 						</div>
@@ -289,7 +351,7 @@
 					<li><span>Телефон</span>+7 919 925 0288</li>
 				</ul>
 			</div>
-			
+
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
 			</div>
