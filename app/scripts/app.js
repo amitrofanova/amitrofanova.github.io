@@ -6,6 +6,7 @@ function changeNav() {
         $(".navbar").removeClass("navbar-scrolled");
         $(".navbar").addClass("navbar-fixed-top");
         $(".navbar-brand").addClass("visible-xs");
+
         if ($(this).scrollTop() > 0) {
             $(".navbar").removeClass("navbar-transparent");
             $(".navbar").addClass("navbar-white");
@@ -13,12 +14,13 @@ function changeNav() {
             $(".navbar").removeClass("navbar-white");
             $(".navbar").addClass("navbar-transparent");
         }
+
         if ($(this).scrollTop() > $("#top").height()) {
             document.getElementsByClassName("to-top")[0].style.display = "block";
         } else {
             document.getElementsByClassName("to-top")[0].style.display = "none";
         }
-    } else if ($(this).scrollTop() > 0){
+    } else if ($(this).scrollTop() > 0) {
         $(".navbar-brand").removeClass("visible-xs");
         $(".navbar").addClass("navbar-scrolled");
         $(".navbar").addClass("navbar-fixed-top");
@@ -44,6 +46,7 @@ function changeNav() {
 function animateSkills() {
     const topOffset = $("#skills_section").offset().top;
     const bottomOffset = topOffset - $(window).height() + 150;
+
     if ($(document).scrollTop() > bottomOffset) {
         $.getJSON("assets/data/skills.json", (data) => {
             $.each(data, (key, val) => {
