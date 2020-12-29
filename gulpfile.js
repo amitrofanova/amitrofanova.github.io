@@ -1,4 +1,4 @@
-const { src, dest, watch, parallel, series } = require("gulp");
+const { src, dest, watch, series } = require("gulp");
 const sync = require("browser-sync").create();
 
 const less = require('gulp-less');
@@ -7,6 +7,7 @@ const browserify = require('browserify');
 const images = require('gulp-image');
 const del = require('del');
 const fs = require("fs");
+const eslint = require("gulp-eslint");
 
 function styles(cb) {
 	src('app/styles/app.less')
@@ -32,10 +33,19 @@ function scripts(cb) {
 	browserify('app/scripts/app.js', {debug: true})
 		.transform(babelify, {presets: ["@babel/preset-env"]})
 		.bundle()
-		//.pipe(src('scripts.js'))
 		.pipe(fs.createWriteStream('dist/assets/scripts/scripts.js'));
 
 	cb();
+}
+
+function runLinter(cb) {
+	return src(['**/*.js', '!node_modules/**', '!dist/**'])
+		.pipe(eslint({fix:true}))
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError())
+		.on('end', function() {
+			cb();
+		});
 }
 
 function fonts(cb) {
@@ -63,7 +73,7 @@ function copy(cb) {
 	cb();
 }
 
-function browserSync(cb) {
+function browserSync() {
 	sync.init({
 		server: {
 			baseDir: ['./', 'dist']
@@ -75,11 +85,11 @@ function browserSync(cb) {
 	watch("./dist/**.html").on('change', sync.reload);
 }
 
-function clean(cb) {
+function clean() {
 	return del.sync('dist');
 }
 
-function watchFiles(cb) {
+function watchFiles() {
 	watch(['app/styles/app.less'], styles);
 	watch(['app/index.html', 'app/index_en.html'], templates);
 	watch(['app/scripts/app.js'], scripts);
@@ -90,6 +100,7 @@ function watchFiles(cb) {
 exports.styles = styles;
 exports.templates = templates;
 exports.scripts = scripts;
+exports.lint = runLinter;
 exports.fonts = fonts;
 exports.images = imagesTask;
 exports.copy = copy;
