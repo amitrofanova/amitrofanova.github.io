@@ -1,78 +1,100 @@
-var gulp = require('gulp'),
-		browserify = require('browserify'),
-		babelify = require('babelify'),
-		source = require('vinyl-source-stream'),
-		less = require('gulp-less');
-		autoprefixer = require('gulp-autoprefixer'),
-		cssnano = require('gulp-cssnano'),
-		rename = require('gulp-rename'),
-		pug = require('gulp-pug'),
-		browserSync = require('browser-sync'),
-		images = require('gulp-image'),
-		del = require('del');
+const { src, dest, watch, parallel, series } = require("gulp");
+const sync = require("browser-sync").create();
 
-gulp.task('styles', function() {
-	return gulp.src('app/styles/app.less')
+const less = require('gulp-less');
+const babelify = require('babelify');
+const browserify = require('browserify');
+const images = require('gulp-image');
+const del = require('del');
+const fs = require("fs");
+
+function styles(cb) {
+	src('app/styles/app.less')
 		.pipe(less())
-		.pipe(gulp.dest('dist/assets/styles'))
-		.pipe(browserSync.reload({stream: true}))
-});
+		.pipe(dest('dist/assets/styles'))
+		.pipe(sync.stream());
 
-gulp.task('templates', function() {
-	return gulp.src(['app/index.html', 'app/index_en.html'])
-		.pipe(gulp.dest('dist'))
-		.pipe(browserSync.reload({stream: true}))
-});
+	cb();
+}
 
-gulp.task('scripts', function() {
-	return browserify('app/scripts/app.js', {debug: true})
-    .transform(babelify, {presets: ["es2015"]})
-    .bundle()
-    .pipe(source('scripts.js'))
-    .pipe(gulp.dest('dist/assets/scripts'))
-		.pipe(browserSync.reload({stream: true}))
-});
+function templates(cb) {
+	src(['app/index.html', 'app/index_en.html'])
+		.pipe(dest('dist'))
+		.pipe(sync.stream());
 
-gulp.task('fonts', function () {
-    gulp.src('app/fonts/fonts/**/*')
-    	.pipe(gulp.dest('dist/assets/fonts'))
-			.pipe(browserSync.reload({stream: true}))
-});
+	cb();
+}
 
-gulp.task('images', function() {
-	return gulp.src('app/images/*')
+function scripts(cb) {
+	// `fs.createWriteStream` is not able to create the folder itself
+	fs.mkdirSync('dist/assets/scripts/', { recursive: true });
+
+	browserify('app/scripts/app.js', {debug: true})
+		.transform(babelify, {presets: ["@babel/preset-env"]})
+		.bundle()
+		//.pipe(src('scripts.js'))
+		.pipe(fs.createWriteStream('dist/assets/scripts/scripts.js'));
+
+	cb();
+}
+
+function fonts(cb) {
+	src('app/fonts/fonts/**/*')
+		.pipe(dest('dist/assets/fonts'))
+		.pipe(sync.stream());
+
+	cb();
+}
+
+function imagesTask(cb) {
+	src('app/images/*')
 		.pipe(images())
-		.pipe(gulp.dest('dist/assets/images'))
-		.pipe(browserSync.reload({stream: true}))
-});
+		.pipe(dest('dist/assets/images'))
+		.pipe(sync.stream());
 
-gulp.task('copy', function() {
-	return gulp.src('app/data/skills.json')
-		.pipe(gulp.dest('dist/assets/data'))
-		.pipe(browserSync.reload({stream: true}))
-});
+	cb();
+}
 
-gulp.task('browser-sync', function() {
-	browserSync({
+function copy(cb) {
+	src('app/data/skills.json')
+		.pipe(dest('dist/assets/data'))
+		.pipe(sync.stream());
+
+	cb();
+}
+
+function browserSync(cb) {
+	sync.init({
 		server: {
 			baseDir: ['./', 'dist']
-		},
-		notify : false
+		}
 	});
-});
 
-gulp.task('clean', function() {
+	watch(['app/styles/app.less'], styles);
+	watch(['app/index.html', 'app/index_en.html'], templates);
+	watch("./dist/**.html").on('change', sync.reload);
+}
+
+function clean(cb) {
 	return del.sync('dist');
-});
+}
 
+function watchFiles(cb) {
+	watch(['app/styles/app.less'], styles);
+	watch(['app/index.html', 'app/index_en.html'], templates);
+	watch(['app/scripts/app.js'], scripts);
+	watch(['app/images/*'], imagesTask);
+	watch(['app/data/skills.json'], copy);
+}
 
-gulp.task('build', ['styles', 'templates', 'scripts', 'images', 'copy'])
-
-
-gulp.task('default', ['browser-sync', 'styles', 'templates', 'scripts', 'images', 'copy'], function() {
-	gulp.watch(['app/styles/app.less'], ['styles']);
-	gulp.watch(['app/index.html', 'app/index_en.html'], ['templates']);
-	gulp.watch(['app/scripts/app.js'], ['scripts']);
-	gulp.watch(['app/images/*'], ['images']);
-	gulp.watch(['app/data/skills.json'], ['copy']);
-});
+exports.styles = styles;
+exports.templates = templates;
+exports.scripts = scripts;
+exports.fonts = fonts;
+exports.images = imagesTask;
+exports.copy = copy;
+exports.browserSync = browserSync;
+exports.clean = clean;
+exports.watch = watchFiles;
+exports.sync = sync;
+exports.default = series(styles, templates, scripts, fonts, imagesTask);
