@@ -104,15 +104,35 @@ $(document).ready(() => {
     $(window).on("scroll", changeNav);
     $(window).on("scroll", animateSkills);
 
-    $(".portfolio__hospital").on("click", () => {
-        openModal("#hospital");
-        const slidesContainer = $(".slider__hospital");
-        showSlides(slidesContainer);
-    });
+    // $(".portfolio__hospital").on("click", () => {
+    //     openModal("#hospital");
+    //     const slidesContainer = $(".slider__hospital");
+    //     showSlides(slidesContainer);
+    // });
+    //
+    // $(".portfolio__recipes").on("click", () => {
+    //     openModal("#recipes");
+    //     const slidesContainer = $(".slider__recipes");
+    //     showSlides(slidesContainer);
+    // });
 
-    $(".portfolio__recipes").on("click", () => {
-        openModal("#recipes");
-        const slidesContainer = $(".slider__recipes");
+    $(".preview-inner").on("click", (e) => {
+        console.log($(e.target));
+        console.log($(e.target).parent());
+        console.log($(e.target).parents(".preview-inner").attr("id"));
+        console.log($(e.target).parents(".preview-inner").length);
+        console.log($(e.target).hasClass(".preview-inner"));
+        
+        let targetId = $(e.target).parents(".preview-inner").attr("id");
+        const modalId = `#${targetId}-modal`;
+        console.log(modalId);
+
+        openModal(modalId);
+
+        const sliderName = `#${targetId}-slider`;
+        console.log(sliderName);
+        const slidesContainer = $(sliderName);
+        console.log(slidesContainer);
         showSlides(slidesContainer);
     });
 
