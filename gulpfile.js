@@ -97,4 +97,4 @@ exports.browserSync = browserSync;
 exports.clean = clean;
 exports.watch = watchFiles;
 exports.sync = sync;
-exports.default = series(styles, templates, scripts, fonts, imagesTask);
+exports.default = series(styles, templates, scripts, fonts, imagesTask, copy);
