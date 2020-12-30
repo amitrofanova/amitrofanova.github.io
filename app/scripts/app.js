@@ -1,5 +1,6 @@
 import $ from "jquery";
 
+// Change navigation panel appearance on scroll and window resize
 function changeNav() {
     if (document.documentElement.clientWidth > 767) {
         $(".navbar").removeClass("navbar-default");
@@ -104,36 +105,19 @@ $(document).ready(() => {
     $(window).on("scroll", changeNav);
     $(window).on("scroll", animateSkills);
 
-    // $(".portfolio__hospital").on("click", () => {
-    //     openModal("#hospital");
-    //     const slidesContainer = $(".slider__hospital");
-    //     showSlides(slidesContainer);
-    // });
-    //
-    // $(".portfolio__recipes").on("click", () => {
-    //     openModal("#recipes");
-    //     const slidesContainer = $(".slider__recipes");
-    //     showSlides(slidesContainer);
-    // });
-
     $(".preview-inner").on("click", (e) => {
-        console.log($(e.target));
-        console.log($(e.target).parent());
-        console.log($(e.target).parents(".preview-inner").attr("id"));
-        console.log($(e.target).parents(".preview-inner").length);
-        console.log($(e.target).hasClass(".preview-inner"));
-        
-        let targetId = $(e.target).parents(".preview-inner").attr("id");
-        const modalId = `#${targetId}-modal`;
-        console.log(modalId);
+        const clickedItem = $(e.target);
+        const portfolioPreviewClicked =
+            clickedItem.hasClass("preview-inner") || clickedItem.parents(".preview-inner").length;
 
-        openModal(modalId);
+        if (portfolioPreviewClicked) {
+            const clickedItemId = clickedItem.attr("id") || clickedItem.parents(".preview-inner").attr("id");
+            const modalToOpen = `#${clickedItemId}-modal`;
+            const slider = $(`#${clickedItemId}-slider`);
 
-        const sliderName = `#${targetId}-slider`;
-        console.log(sliderName);
-        const slidesContainer = $(sliderName);
-        console.log(slidesContainer);
-        showSlides(slidesContainer);
+            openModal(modalToOpen);
+            showSlides(slider);
+        }
     });
 
     $(".close").on("click", closeModal);
