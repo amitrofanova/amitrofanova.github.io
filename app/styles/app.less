@@ -8,8 +8,8 @@
 }
 
 *,
- :before,
- :after {
+:before,
+:after {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -37,25 +37,25 @@ ul {
 }
 
 #overlay{
-  position:fixed;
-  z-index:11199999;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  background:rgba(0,0,0,0.9) url("../images/ajax-loader.gif") no-repeat center;
-  transition: 1s 0.4s;
+	position:fixed;
+	z-index:11199999;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background:rgba(0,0,0,0.9) url("../images/ajax-loader.gif") no-repeat center;
+	transition: 1s 0.4s;
 }
 
 #loader {
-background:url("../images/ajax-loader.gif") no-repeat center;
-height: 100px;
-width: 100px;
-position: fixed;
-left: 50%;
-top: 10%;
-z-index: 200000;
-margin: -25px 0 0 -25px;
+	background:url("../images/ajax-loader.gif") no-repeat center;
+	height: 100px;
+	width: 100px;
+	position: fixed;
+	left: 50%;
+	top: 10%;
+	z-index: 200000;
+	margin: -25px 0 0 -25px;
 }
 
 .navbar {
@@ -106,7 +106,7 @@ margin: -25px 0 0 -25px;
 		color: #000;
 	}
 	.lang {
-	  -webkit-text-fill-color: #000;
+		-webkit-text-fill-color: #000;
 	}
 }
 
@@ -176,8 +176,8 @@ margin: -25px 0 0 -25px;
 
 .navbar-scrolled {
 	background: -webkit-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
-  background: -o-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
-  background: -moz-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
+	background: -o-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
+	background: -moz-linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
 	background: linear-gradient(to bottom, rgba(11, 40, 58, 0.7), rgba(255, 255, 255, 0));
 	ul {
 		background-color: #0b283a;
@@ -238,20 +238,20 @@ header {
 	margin-bottom: 20px;
 	padding: 5px;
 	text-align: center;
-  // font-family: 'Pacifico', cursive;
+	// font-family: 'Pacifico', cursive;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	-webkit-text-fill-color: #fff;
-  &:before {
-  	position: absolute;
-  	top: 0;
-  	left: 50%;
-  	width: 230px;
-  	height: 2px;
-  	margin-left: -115px;
-  	content: '';
-  	background-color: #fff;
-  }
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 230px;
+		height: 2px;
+		margin-left: -115px;
+		content: '';
+		background-color: #fff;
+	}
 }
 
 .header_title {
@@ -267,27 +267,27 @@ header {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-family: 'Russo One', sans-serif;
-  &:before {
-  	position: absolute;
-  	content: '';
-  	z-index: -2;
-  	top: 0;
-  	right: 0;
-  	bottom: 0;
-  	left: 0;
-  	background-image: inherit;
-  	background-size: cover;
-  }
-  &:after {
-  	position: absolute;
-  	content: '';
-  	z-index: -1;
-  	background-color: #000;
+	&:before {
+		position: absolute;
+		content: '';
+		z-index: -2;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: inherit;
+		background-size: cover;
+	}
+	&:after {
+		position: absolute;
+		content: '';
+		z-index: -1;
+		background-color: #000;
 		box-shadow: 0 0 20px rgba(255,255,255,0.5);
-  	top: 70px;
-  	right: 2em;
-  	bottom: 70px;
-  	left: 2em;
+		top: 70px;
+		right: 2em;
+		bottom: 70px;
+		left: 2em;
 		@media (min-width: 768px) and (max-width: 920px) {
 			right: 1.5em;
 			left: 1.5em;
@@ -304,7 +304,7 @@ header {
 			right: 4em;
 			left: 4em;
 		}
-  }
+	}
 }
 
 .section_title {
@@ -349,6 +349,7 @@ header {
 			padding-left: 30px;
 		}
 		border-radius: 5px;
+		color: #337ab7;
 		span {
 			display: inline-block;
 			font-weight: 700;
@@ -464,30 +465,30 @@ header {
 	}
 	.preview {
 		&>div {
-    	padding-top: 30px;
-    	padding-bottom: 10px;
-      @media (max-width: 767px) {padding-bottom: 0;}
-    }
-    .modal-preview {
-      height: 200px;
-    	padding-bottom: 30px;
-      text-align: center;
-      overflow: hidden;
-      img {
-        max-height: 100%;
-        transition: 0.4s;
-      }
-      img:hover {cursor:pointer;}
-    }
-    .preview-inner {
-      position: relative;
-  		height: 260px;
-  		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-      &:hover {
-  			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  			cursor: pointer;
-  		}
-    }
+			padding-top: 30px;
+			padding-bottom: 10px;
+			@media (max-width: 767px) {padding-bottom: 0;}
+		}
+		.modal-preview {
+			height: 200px;
+			padding-bottom: 30px;
+			text-align: center;
+			overflow: hidden;
+			img {
+				max-height: 100%;
+				transition: 0.4s;
+			}
+			img:hover {cursor:pointer;}
+		}
+		.preview-inner {
+			position: relative;
+			height: 260px;
+			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+			&:hover {
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				cursor: pointer;
+			}
+		}
 
 		.preview-inner__img {
 			overflow: hidden;
@@ -497,16 +498,16 @@ header {
 			}
 		}
 
-    .description {
-      position: absolute;
-      bottom: 0;
-      height: 25%;
-      width: 100%;
-      background-color: rgba(0,0,0,0.9);
+		.description {
+			position: absolute;
+			bottom: 0;
+			height: 25%;
+			width: 100%;
+			background-color: rgba(0,0,0,0.9);
 			text-align: left;
-      .work {font-size: 19px; color: #fff; padding: 10px 10px 5px;}
-      .role {font-size: 12px; font-weight: 700; text-transform: uppercase; color: #ccc; padding: 0 10px 5px;}
-    }
+			.work {font-size: 19px; color: #fff; padding: 10px 10px 5px;}
+			.role {font-size: 12px; font-weight: 700; text-transform: uppercase; color: #ccc; padding: 0 10px 5px;}
+		}
 	}
 
 	.modal {
@@ -678,7 +679,6 @@ td:first-child {
 	font-size: 1.3em;
 	color: #fff;
 	.right {
-
 		span {
 			width: max-content;
 			width: -webkit-max-content;
@@ -689,15 +689,19 @@ td:first-child {
 			background-color: #fff;
 			color: #0b283a;
 			font-size: 0.8em;
-			border-radius: 4px;
+			border-radius: 8px;
 			cursor: pointer;
 			&:hover {
-				border-radius: 30px;
+				border-radius: 4px;
 				color: #000;
 				opacity: .7;
 			}
 		}
 	}
+}
+
+.modal-dialog .modal-title {
+	color: #333;
 }
 
 .fa {
@@ -714,14 +718,14 @@ footer {
 	background-color: #fff;
 	color: #000;
 	vertical-align: middle;
-  font-size: .8em;
+	font-size: .8em;
 	.footer_left {
 		text-align: left;
 		@media (max-width: 767px) {padding-top: 10px;}
 	}
 	.footer_right {
 		text-align: right;
-			// padding: 25px;
+		// padding: 25px;
 	}
 	.footer_left,
 	.footer_right {
